@@ -2,7 +2,9 @@ import uuid
 import random
 from pymongo import MongoClient
 
-client = MongoClient("mongodb://localhost:27017/")
+MONGO_URI = "mongodb+srv://canyildiz1386:0COOxv0pH7orehbk@cluster0.3duqw.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"
+
+client = MongoClient(MONGO_URI)
 db = client["sho"]
 collection = db["products"]
 
@@ -200,6 +202,5 @@ for name, desc in beauty:
         "image_url": "https://via.placeholder.com/200.png?text=" + name.replace(" ","+"),
         "inventory": inv
     })
-print(data)
 collection.insert_many(data)
 print("Inserted", len(data), "products.")

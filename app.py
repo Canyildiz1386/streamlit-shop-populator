@@ -29,7 +29,8 @@ st.session_state.setdefault("active_page", "Home")
 st.session_state.setdefault("show_details_for", None)
 st.session_state.setdefault("load_more_key", 0)
 
-MONGO_URI = os.environ.get("MONGO_URI", "mongodb://localhost:27017/")
+# MONGO_URI = os.environ.get("MONGO_URI", "mongodb://localhost:27017/")
+MONGO_URI = "mongodb+srv://canyildiz1386:0COOxv0pH7orehbk@cluster0.3duqw.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"
 client = MongoClient(MONGO_URI)
 db = client["sho"]
 users_collection = db["users"]
