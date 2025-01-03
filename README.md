@@ -33,8 +33,7 @@ Build a mini e-commerce prototype with user authentication, product listing, rec
 
 ## 📋 Requirements
 - **Python 3.7+**  
-- **pymongo**, **bcrypt**, **streamlit**, **pandas**, **numpy**, etc.  
-- A running **MongoDB** instance (update `MONGO_URI` if needed).
+
 
 ## 🛠️ Inside populate.py
 - **`init_products()`** inserts default items if your database is empty.

@@ -31,7 +31,7 @@ st.session_state.setdefault("load_more_key", 0)
 
 MONGO_URI = os.environ.get("MONGO_URI", "mongodb://localhost:27017/")
 client = MongoClient(MONGO_URI)
-db = client["sho"]
+db = client["Shop"]
 users_collection = db["users"]
 products_collection = db["products"]
 interactions_collection = db["interactions"]
@@ -728,7 +728,7 @@ def role_based_routing():
     )
 
 def main():
-    init_products()
+    # init_products()
     choice = role_based_routing()
     if choice == "Login":
         login_screen()

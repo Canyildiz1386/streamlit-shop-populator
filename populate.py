@@ -1,11 +1,11 @@
 import uuid
 import random
 from pymongo import MongoClient
+import os
 
-MONGO_URI = "mongodb+srv://canyildiz1386:0COOxv0pH7orehbk@cluster0.3duqw.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"
-
-client = MongoClient("mongodb://localhost:27017/")
-db = client["sho"]
+MONGO_URI = os.environ.get("MONGO_URI", "mongodb://localhost:27017/")
+client = MongoClient(MONGO_URI)
+db = client["Shop"]
 collection = db["products"]
 
 electronics = [
@@ -123,9 +123,7 @@ beauty = [
     ("Neutrogena Ultra Sheer Sunscreen", "Broad-spectrum sun protection")
 ]
 
-client.drop_database("sho")
-db = client["sho"]
-collection = db["products"]
+
 
 data = []
 for name, desc in electronics:
@@ -202,6 +200,5 @@ for name, desc in beauty:
         "image_url": "https://via.placeholder.com/200.png?text=" + name.replace(" ","+"),
         "inventory": inv
     })
-print(data)
 collection.insert_many(data)
 print("Inserted", len(data), "products.")
